@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1serxxj2dyph"]
+[gd_scene load_steps=4 format=3 uid="uid://c1serxxj2dyph"]
 
+[ext_resource type="Script" uid="uid://qj0wdtq4p6e" path="res://jugador.gd" id="1_b7wwv"]
 [ext_resource type="Texture2D" uid="uid://c7ic45x36qefd" path="res://Dodge Ram Rebel TRX/off road racing/car-body.png" id="1_pi76j"]
 [ext_resource type="PackedScene" uid="uid://cktkp1ltb0tvp" path="res://Ruedas.tscn" id="2_cbm0a"]
 
-[node name="jugador" type="RigidBody2D"]
+[node name="jugador" type="RigidBody2D" groups=["jugador"]]
+script = ExtResource("1_b7wwv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(455, 63)

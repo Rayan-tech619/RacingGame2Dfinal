@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1serxxj2dyph"]
+
+[ext_resource type="Texture2D" uid="uid://c7ic45x36qefd" path="res://Dodge Ram Rebel TRX/off road racing/car-body.png" id="1_pi76j"]
+[ext_resource type="PackedScene" uid="uid://cktkp1ltb0tvp" path="res://Ruedas.tscn" id="2_cbm0a"]
+
+[node name="jugador" type="RigidBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(455, 63)
+polygon = PackedVector2Array(-147, 93, 140, 93, 167, 21, 201, 15, 250, 18, 271, 25, 309, 91, 340, 82, 338, 43, 330, 40, 330, -6, 313, -23, 192, -41, 188, -35, 167, -32, 75, -80, 42, -83, -72, -81, -108, -97, -129, -71, -160, -74, -197, -52, -204, -34, -210, -18, -330, -15, -337, 12, -336, 54, -342, 59, -342, 75, -328, 85, -318, 87, -311, 82, -290, 83, -279, 44, -258, 33, -224, 26, -182, 38, -168, 57, -161, 80, -153, 86)
+
+[node name="CarBody" type="Sprite2D" parent="."]
+position = Vector2(455, 63)
+texture = ExtResource("1_pi76j")
+
+[node name="Rueda atras" parent="." instance=ExtResource("2_cbm0a")]
+position = Vector2(50, 10)
+
+[node name="PinTrasera" type="PinJoint2D" parent="Rueda atras"]
+position = Vector2(177, 145)
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="Rueda adelante" parent="." instance=ExtResource("2_cbm0a")]
+position = Vector2(496, -7)
+
+[node name="PinDelantera" type="PinJoint2D" parent="Rueda adelante"]
+position = Vector2(177, 145)
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(446, -19)
+zoom = Vector2(0.4, 0.4)

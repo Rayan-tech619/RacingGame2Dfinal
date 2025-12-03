@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmw7x7yc21ck0"]
+
+[ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="1_f3sb7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f3sb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
+size = Vector2(2941, 23.285465)
+
+[node name="world" type="Node2D"]
+
+[node name="jugador" parent="." instance=ExtResource("1_f3sb7")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_f3sb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1095.9999, 681)
+rotation = 0.34906584
+scale = Vector2(1.7491957, -7.7528334)
+shape = SubResource("RectangleShape2D_f3sb7")

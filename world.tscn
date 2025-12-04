@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmw7x7yc21ck0"]
+[gd_scene load_steps=5 format=3 uid="uid://cmw7x7yc21ck0"]
 
 [ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://quoynl1baecx" path="res://Texturas/Captura de pantalla 2025-12-04 024259.png" id="2_fj7yv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f3sb7"]
 
@@ -19,3 +20,15 @@ physics_material_override = SubResource("PhysicsMaterial_f3sb7")
 position = Vector2(1095.9999, 681)
 scale = Vector2(1.7491957, -7.7528334)
 shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
+polygon = PackedVector2Array(3671, 587, 4374, 535, 4677, 395, 4914, 150, 5136, -160, 5403, -316, 5314, -123, 5247, 106, 5114, 424, 4892, 580, 4633, 713, 4418, 794, 4159, 824, 3996, 787, 3841, 787, 3671, 772)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Floor"]
+position = Vector2(735, -721)
+polygon = PackedVector2Array(6170, -192, 8735, -3396, 9862, -2468, 8678, -1144, 7331, 505)
+
+[node name="CapturaDePantalla20251204024259" type="Sprite2D" parent="."]
+position = Vector2(1971.4998, 1112.25)
+scale = Vector2(9.439726, 2.4443154)
+texture = ExtResource("2_fj7yv")

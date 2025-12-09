@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmw7x7yc21ck0"]
+[gd_scene load_steps=6 format=3 uid="uid://cmw7x7yc21ck0"]
 
 [ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://quoynl1baecx" path="res://Texturas/Captura de pantalla 2025-12-04 024259.png" id="2_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://ovwvb34r7i1b" path="res://Texturas/tree-cartoon-tree-free-png.png" id="2_tlwt5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f3sb7"]
 
@@ -27,6 +28,18 @@ polygon = PackedVector2Array(3671, 587, 4374, 535, 4677, 395, 4914, 150, 5136, -
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Floor"]
 position = Vector2(735, -721)
 polygon = PackedVector2Array(6170, -192, 8735, -3396, 9862, -2468, 8678, -1144, 7331, 505)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Floor"]
+position = Vector2(1072, -1581)
+polygon = PackedVector2Array(10995, -2659, 12491, -2659, 14286, -2621, 16680, -2921, 17353, -3369, 17765, -3818, 18363, -4754, 18737, -5689, 18924, -6212, 19859, -6212, 19635, -5315, 19597, -4716, 19672, -3669, 19448, -3183, 19298, -2098, 18774, -1574, 16268, -1574, 13239, -1537, 10658, -1537)
+
+[node name="TreeCartoonTreeFreePng" type="Sprite2D" parent="."]
+position = Vector2(-862, 245)
+texture = ExtResource("2_tlwt5")
+
+[node name="TreeCartoonTreeFreePng2" type="Sprite2D" parent="."]
+position = Vector2(2063, 172)
+texture = ExtResource("2_tlwt5")
 
 [node name="CapturaDePantalla20251204024259" type="Sprite2D" parent="."]
 position = Vector2(1971.4998, 1112.25)

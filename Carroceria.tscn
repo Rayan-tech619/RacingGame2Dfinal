@@ -24,10 +24,10 @@ node_a = NodePath("..")
 node_b = NodePath("../..")
 
 [node name="Rueda adelante" parent="." instance=ExtResource("2_cbm0a")]
-position = Vector2(496, -7)
+position = Vector2(498, 2)
 
 [node name="PinDelantera" type="PinJoint2D" parent="Rueda adelante"]
-position = Vector2(177, 145)
+position = Vector2(177, 146)
 node_a = NodePath("..")
 node_b = NodePath("../..")
 

@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var ruedas = []
-var velocidad = 5000
+var velocidad = 8000
 
 func _ready() -> void:
 	ruedas = get_tree().get_nodes_in_group("ruedas")

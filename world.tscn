@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmw7x7yc21ck0"]
 
 [ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="1_f3sb7"]
-[ext_resource type="Texture2D" uid="uid://quoynl1baecx" path="res://Texturas/Captura de pantalla 2025-12-04 024259.png" id="2_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://ovwvb34r7i1b" path="res://Texturas/tree-cartoon-tree-free-png.png" id="2_tlwt5"]
+[ext_resource type="Texture2D" uid="uid://bxkctmna2si2" path="res://Texturas/Captura de pantalla de 2025-12-09 13-18-47.png" id="3_tlwt5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f3sb7"]
 
@@ -41,7 +41,22 @@ texture = ExtResource("2_tlwt5")
 position = Vector2(2063, 172)
 texture = ExtResource("2_tlwt5")
 
-[node name="CapturaDePantalla20251204024259" type="Sprite2D" parent="."]
-position = Vector2(1971.4998, 1112.25)
-scale = Vector2(9.439726, 2.4443154)
-texture = ExtResource("2_fj7yv")
+[node name="CapturaDePantallaDe20251209131847" type="Sprite2D" parent="."]
+position = Vector2(-751.00006, 916)
+scale = Vector2(4.09887, 5.732456)
+texture = ExtResource("3_tlwt5")
+
+[node name="CapturaDePantallaDe20251209131848" type="Sprite2D" parent="."]
+position = Vector2(697.00006, 912.00006)
+scale = Vector2(4.09887, 5.732456)
+texture = ExtResource("3_tlwt5")
+
+[node name="CapturaDePantallaDe20251209131849" type="Sprite2D" parent="."]
+position = Vector2(2144.0002, 912.00006)
+scale = Vector2(4.09887, 5.732456)
+texture = ExtResource("3_tlwt5")
+
+[node name="CapturaDePantallaDe20251209131850" type="Sprite2D" parent="."]
+position = Vector2(3583, 900.00006)
+scale = Vector2(4.09887, 5.732456)
+texture = ExtResource("3_tlwt5")

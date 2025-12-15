@@ -1,20 +1,16 @@
-extends Control  # O el tipo de nodo que sea tu nodo raíz
+extends Control
 
-# Rutas a las escenas
-const WORLD_SCENE_PATH = "res://World.tscn"  # Cambia la ruta si es diferente
+const WORLD_SCENE_PATH = "res://world.tscn"
 
 func _ready():
-	# Conectar botones (si no lo haces desde la señal en el editor)
-	$Button("pressed", self, "_on_Button_pressed")
-	$Button3.connect("pressed", self, "_on_Button_pressed")
+	$VBoxContainer/Button.pressed.connect(_on_Button_pressed)
+	$VBoxContainer/Button3.pressed.connect(_on_ButtonSalir_pressed)
 
-# Función que se llama al presionar "Jugar"
 func _on_Button_pressed():
 	if ResourceLoader.exists(WORLD_SCENE_PATH):
-		get_tree().change_scene(WORLD_SCENE_PATH)
+		get_tree().change_scene_to_file(WORLD_SCENE_PATH)
 	else:
-		print("Error: No se encontró la escena World.tscn en la ruta:", WORLD_SCENE_PATH)
+		print("Error: No se encontró la escena:", WORLD_SCENE_PATH)
 
-# Función que se llama al presionar "Salir"
 func _on_ButtonSalir_pressed():
 	get_tree().quit()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlflupnivl7gr"]
+[gd_scene load_steps=8 format=3 uid="uid://dlflupnivl7gr"]
 
 [ext_resource type="Theme" uid="uid://bjkk76vhmdm1k" path="res://Temas/MenuPrincipal.tres" id="1_w42t8"]
 [ext_resource type="Script" uid="uid://cafxyg212cuyf" path="res://MenuPrincipal/menu_principal.gd" id="1_wekhl"]
 [ext_resource type="Script" uid="uid://d4bfnn7gif1e6" path="res://MenuPrincipal/button_2.gd" id="2_n362c"]
+[ext_resource type="Texture2D" uid="uid://bgb02hn33vmkk" path="res://Texturas/Captura de pantalla de 2025-12-16 12-50-05.png" id="2_pk5xk"]
+[ext_resource type="Texture2D" uid="uid://cu2rpa2h5dx2n" path="res://Texturas/Cool Text - RUMPTRUCK 498263355235577.png" id="5_uvje2"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_n362c"]
 
@@ -14,9 +16,19 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 368.0
+offset_right = 288.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_wekhl")
+
+[node name="CapturaDePantallaDe20251216125005" type="Sprite2D" parent="."]
+position = Vector2(565.8333, -59.16669)
+scale = Vector2(2.863747, 1.5962098)
+texture = ExtResource("2_pk5xk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -25,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -239.0
+offset_top = -181.0
+offset_right = 309.0
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -36,6 +48,19 @@ theme_override_constants/separation = 20
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_w42t8")
+theme_override_colors/font_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/font_focus_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/font_pressed_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/font_hover_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/font_disabled_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/icon_normal_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/icon_focus_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/icon_pressed_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/icon_hover_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_colors/icon_disabled_color = Color(0.8509804, 0.43137255, 0.11372549, 1)
+theme_override_constants/h_separation = 4
 toggle_mode = true
 button_group = SubResource("ButtonGroup_n362c")
 text = "Jugar"
@@ -50,3 +75,8 @@ script = ExtResource("2_n362c")
 layout_mode = 2
 theme = SubResource("Theme_wekhl")
 text = "Salir"
+
+[node name="CoolTextRumptruck498263355235577" type="Sprite2D" parent="."]
+position = Vector2(581.6665, -461.66663)
+scale = Vector2(1.9070514, 1.7222223)
+texture = ExtResource("5_uvje2")

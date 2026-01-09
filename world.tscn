@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmw7x7yc21ck0"]
+[gd_scene load_steps=6 format=3 uid="uid://cmw7x7yc21ck0"]
 
-[ext_resource type="Texture2D" uid="uid://b4p2groewudm6" path="res://Texturas/Captura de pantalla de 2025-12-10 12-40-24.png" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://ovwvb34r7i1b" path="res://Texturas/tree-cartoon-tree-free-png.png" id="2_tlwt5"]
-[ext_resource type="Texture2D" uid="uid://bik7c8s5kywy7" path="res://Texturas/Captura de pantalla de 2025-12-10 12-47-53.png" id="5_036b0"]
 
 [sub_resource type="GDScript" id="GDScript_aqk2v"]
 
@@ -19,19 +17,21 @@ script = SubResource("GDScript_aqk2v")
 layer = -99
 follow_viewport_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(-1.5258789e-05, 0)
-scale = Vector2(1.0000001, 1)
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="CapturaDePantallaDe20251210124753" type="Sprite2D" parent="ParallaxBackground/Sprite2D"]
-position = Vector2(287.99997, 1120)
-scale = Vector2(10.883895, 15.850746)
-texture = ExtResource("5_036b0")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 
-[node name="CapturaDePantallaDe20251210124024" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(287, -507.00006)
-scale = Vector2(10.813086, 9.758928)
-texture = ExtResource("1_aqk2v")
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 
 [node name="jugador" parent="." instance=ExtResource("1_f3sb7")]
 top_level = true

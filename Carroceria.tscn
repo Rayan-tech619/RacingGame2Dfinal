@@ -17,6 +17,8 @@ texture = ExtResource("1_pi76j")
 
 [node name="Rueda atras" parent="." instance=ExtResource("2_cbm0a")]
 position = Vector2(50, 10)
+mass = 3.0
+gravity_scale = 2.5
 
 [node name="PinTrasera" type="PinJoint2D" parent="Rueda atras"]
 position = Vector2(177, 145)
@@ -25,6 +27,8 @@ node_b = NodePath("../..")
 
 [node name="Rueda adelante" parent="." instance=ExtResource("2_cbm0a")]
 position = Vector2(498, 2)
+mass = 3.0
+gravity_scale = 2.5
 
 [node name="PinDelantera" type="PinJoint2D" parent="Rueda adelante"]
 position = Vector2(177, 146)
@@ -32,5 +36,5 @@ node_a = NodePath("..")
 node_b = NodePath("../..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(446, -19)
-zoom = Vector2(0.2, 0.2)
+position = Vector2(707, 86)
+zoom = Vector2(0.13, 0.13)

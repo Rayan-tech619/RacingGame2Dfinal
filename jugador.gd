@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 var ruedas = []
-var velocidad = 8000
-var fuerza_aerea = 200000   # fuerza alta para volteretas
+var velocidad = 30000
+var fuerza_aerea = 1500000 # fuerza alta para volteretas
 
 func _ready():
 	ruedas = get_tree().get_nodes_in_group("ruedas")
@@ -32,4 +32,3 @@ func _en_suelo():
 		if r.get_contact_count() > 0:
 			return true
 	return false
-	

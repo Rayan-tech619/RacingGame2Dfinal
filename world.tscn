@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmw7x7yc21ck0"]
+[gd_scene load_steps=10 format=3 uid="uid://cmw7x7yc21ck0"]
 
+[ext_resource type="Texture2D" uid="uid://d4b5ulxhg1yds" path="res://Parallax/parallax-00.png" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://cjka1se4x80hn" path="res://Parallax/parallax-01.png" id="2_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://ovwvb34r7i1b" path="res://Texturas/tree-cartoon-tree-free-png.png" id="2_tlwt5"]
+[ext_resource type="Texture2D" uid="uid://q0dnttxs8fr3" path="res://Parallax/parallax-02.png" id="3_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://dvl32iexknud6" path="res://Parallax/parallax-03.png" id="4_ioo17"]
 
 [sub_resource type="GDScript" id="GDScript_aqk2v"]
 
@@ -13,25 +17,43 @@ size = Vector2(2941, 23.285465)
 [node name="world" type="Node2D"]
 script = SubResource("GDScript_aqk2v")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = -99
-follow_viewport_enabled = true
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1770, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4"]
+position = Vector2(2419.0002, 1825.375)
+scale = Vector2(9.288889, 22.364582)
+texture = ExtResource("1_dwbse")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(500000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(10107.501, 2828)
+scale = Vector2(19.90764, 19.016666)
+texture = ExtResource("2_pkg7o")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1770, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
+position = Vector2(2433.5002, 2290.7502)
+scale = Vector2(9.299305, 19.295834)
+texture = ExtResource("3_gbfbk")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0.8, 0)
+motion_mirroring = Vector2(50000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(14113.75, 1549)
+scale = Vector2(25.564238, 20.169445)
+texture = ExtResource("4_ioo17")
 
 [node name="jugador" parent="." instance=ExtResource("1_f3sb7")]
 top_level = true

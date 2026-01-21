@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cktkp1ltb0tvp" path="res://Ruedas.tscn" id="2_cbm0a"]
 
 [node name="jugador" type="RigidBody2D" groups=["jugador"]]
+position = Vector2(0, 995)
 script = ExtResource("1_b7wwv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

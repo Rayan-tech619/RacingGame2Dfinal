@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckhg3le148o5i"
-path="res://.godot/imported/tileset_snow.png-4e02bd4622fd23e3d52a4ce0fd51520a.ctex"
+uid="uid://ddwiv0kuujj5b"
+path="res://.godot/imported/Captura de pantalla de 2026-01-21 12-12-04.png-feea6a26ba214ac19fe8e3a2536a1ab9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://suelo/tileset_snow.png"
-dest_files=["res://.godot/imported/tileset_snow.png-4e02bd4622fd23e3d52a4ce0fd51520a.ctex"]
+source_file="res://suelo/Captura de pantalla de 2026-01-21 12-12-04.png"
+dest_files=["res://.godot/imported/Captura de pantalla de 2026-01-21 12-12-04.png-feea6a26ba214ac19fe8e3a2536a1ab9.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -71,7 +71,7 @@ theme = SubResource("Theme_wekhl")
 text = "Configuracion"
 script = ExtResource("2_n362c")
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="ButtonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_wekhl")
 text = "Salir"
@@ -80,3 +80,6 @@ text = "Salir"
 position = Vector2(581.6665, -461.66663)
 scale = Vector2(1.9070514, 1.7222223)
 texture = ExtResource("5_uvje2")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonSalir" to="." method="_on_button_salir_pressed"]

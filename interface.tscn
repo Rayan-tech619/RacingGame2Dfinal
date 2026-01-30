@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c788mqrkiqjty"]
+[gd_scene format=3 uid="uid://c788mqrkiqjty"]
 
 [ext_resource type="Script" uid="uid://crbixx6c38nak" path="res://interface.gd" id="1_kyn48"]
 [ext_resource type="Texture2D" uid="uid://c73158kf4y55w" path="res://MenuPrincipal/Desert canyon level selection screen.png" id="1_rh14k"]
@@ -6,7 +6,7 @@
 [sub_resource type="ButtonGroup" id="ButtonGroup_kyn48"]
 allow_unpress = true
 
-[node name="Niveles" type="Control"]
+[node name="Niveles" type="Control" unique_id=654964494]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kyn48")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1362368799]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1728327, 0.17283267, 0.17283267, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1388021487]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,77 +37,93 @@ offset_right = -318.0
 offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=815817791]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
 text = "LEVELS
+5
+5
+5
 
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1584263585]
 layout_mode = 0
 offset_left = 333.0
 offset_top = 290.0
 offset_right = 460.0
 offset_bottom = 376.0
 
-[node name="Button2" type="Button" parent="VBoxContainer2"]
+[node name="Button2" type="Button" parent="VBoxContainer2" unique_id=831396400]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
 text = "LEVELS
-
+s
+s
+s
 "
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1450876689]
 layout_mode = 0
 offset_left = 533.0
 offset_top = 283.0
 offset_right = 647.0
 offset_bottom = 379.0
 
-[node name="Button3" type="Button" parent="VBoxContainer3"]
+[node name="Button3" type="Button" parent="VBoxContainer3" unique_id=20222101]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
 text = "LEVELS
+s
+s
+s
 
 "
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+[node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=137576239]
 layout_mode = 0
 offset_left = 731.0
 offset_top = 293.0
 offset_right = 844.0
 offset_bottom = 377.0
 
-[node name="Button4" type="Button" parent="VBoxContainer4"]
+[node name="Button4" type="Button" parent="VBoxContainer4" unique_id=1182531488]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
 text = "LEVELS
+s
+s
+s
 
 "
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+[node name="VBoxContainer5" type="VBoxContainer" parent="." unique_id=2077544020]
 layout_mode = 0
 offset_left = 922.0
 offset_top = 287.0
 offset_right = 1037.0
 offset_bottom = 377.0
 
-[node name="Button5" type="Button" parent="VBoxContainer5"]
+[node name="Button5" type="Button" parent="VBoxContainer5" unique_id=778042736]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
 text = "LEVELS
+s
+s
+s
+
 
 "
 
-[node name="DesertCanyonLevelSelectionScreen" type="Sprite2D" parent="."]
-position = Vector2(590.9999, 335.99997)
+[node name="DesertCanyonLevelSelectionScreen" type="Sprite2D" parent="." unique_id=660041894]
+position = Vector2(586, 332)
 scale = Vector2(0.76497394, 0.6503906)
 texture = ExtResource("1_rh14k")
 

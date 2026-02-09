@@ -1,23 +1,31 @@
 extends RigidBody2D
 
+# =====================
 # VARIABLES
+# =====================
 var ruedas = []
-var velocidad = 30000        # torque de ruedas
-var fuerza_aerea = 1500000   # torque en el aire
-@export var fuerza_salto = 300  # fuerza de salto ajustable
-var jump = false              # para detectar salto
 
+var velocidad = 30000          # torque de las ruedas (avance)
+var torque_aire = 1500000      # control de giro en el aire
+var torque_suelo = 300000      # pequeño giro en el suelo
+
+var fuerza_enderezar = 3500000 # ayuda para enderezar
+
+# =====================
+# READY
+# =====================
 func _ready():
-	# Agarrar todas las ruedas del grupo "ruedas"
 	ruedas = get_tree().get_nodes_in_group("ruedas")
 
+# =====================
+# PHYSICS PROCESS
+# =====================
 func _physics_process(delta):
 	# --- INPUTS ---
 	var right = Input.is_action_pressed("ui_right")
 	var left  = Input.is_action_pressed("ui_left")
-	jump = Input.is_action_just_pressed("salto")   # ESPACIO para saltar
 
-	# --- MOVIMIENTO RUEDAS ---
+	# --- AVANCE (RUEDAS) ---
 	if right:
 		for r in ruedas:
 			r.apply_torque_impulse(velocidad * delta * 60)
@@ -25,31 +33,35 @@ func _physics_process(delta):
 		for r in ruedas:
 			r.apply_torque_impulse(-velocidad * delta * 60)
 
-	# --- VOLTERETAS EN EL AIRE ---
-	if not _en_suelo():
-		if left:
-			apply_torque_impulse(-fuerza_aerea * delta)
-		if right:
-			apply_torque_impulse(fuerza_aerea * delta)
+	# --- GIRO DEL COCHE ---
+	if right:
+		if _en_suelo():
+			apply_torque_impulse(torque_suelo * delta)
+		else:
+			apply_torque_impulse(torque_aire * delta)
 
-	# --- SALTO ---
-	if jump and _en_suelo():
-		sleeping = false
-		linear_velocity.y = -fuerza_salto
+	if left:
+		if _en_suelo():
+			apply_torque_impulse(-torque_suelo * delta)
+		else:
+			apply_torque_impulse(-torque_aire * delta)
 
-	# --- RESET SI SE VOLTEA ---
-	if Input.is_action_just_pressed("reset_car"):
-		rotation = 10
-		angular_velocity = 20
-		linear_velocity = Vector2.ZERO
-		position.y -= 10   # levantar ligeramente para no chocar con el suelo
+	# --- ENDEREZAR SUAVE EN EL AIRE (R) ---
+	if not _en_suelo() and Input.is_action_pressed("enderezar") and _boca_abajo():
+		apply_torque_impulse(-rotation * fuerza_enderezar * delta)
 
 
-# --- FUNCIONES AUXILIARES ---
+# =====================
+# FUNCIONES
+# =====================
 
-# Detecta si las ruedas están tocando el suelo
+# Detecta si alguna rueda toca el suelo
 func _en_suelo():
 	for r in ruedas:
 		if r.get_contact_count() > 0:
 			return true
 	return false
+
+# Detecta si el coche está volteado
+func _boca_abajo():
+	return abs(rotation) > PI * 0.5

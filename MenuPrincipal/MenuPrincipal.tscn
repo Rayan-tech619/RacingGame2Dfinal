@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bgb02hn33vmkk" path="res://Texturas/Captura de pantalla de 2025-12-16 12-50-05.png" id="2_pk5xk"]
 [ext_resource type="Texture2D" uid="uid://cu2rpa2h5dx2n" path="res://Texturas/Cool Text - RUMPTRUCK 498263355235577.png" id="5_uvje2"]
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_uvje2"]
+file = "res://Texturas/cocheaura.ogv"
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_n362c"]
 
 [sub_resource type="Theme" id="Theme_wekhl"]
 Button/font_sizes/font_size = 80
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_uvje2"]
-file = "res://Texturas/cocheaura.ogv"
 
 [node name="MenuPrincipal" type="Control" unique_id=772157512]
 layout_mode = 3
@@ -27,6 +27,32 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_wekhl")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=10246945]
+layout_direction = 4
+layout_mode = 0
+offset_left = -420.00003
+offset_top = -641.6666
+offset_right = 1422.0
+offset_bottom = 322.33337
+scale = Vector2(3, 3)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=382940793]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(650, 500)
+render_target_update_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport" unique_id=1851623281]
+offset_left = -40.555542
+offset_top = -15.0
+offset_right = 1855.0
+offset_bottom = 908.3334
+stream = SubResource("VideoStreamTheora_uvje2")
+autoplay = true
+loop = true
 
 [node name="CapturaDePantallaDe20251216125005" type="Sprite2D" parent="." unique_id=440060208]
 position = Vector2(-151.66669, -1415)
@@ -83,30 +109,6 @@ text = "Salir"
 position = Vector2(615.00006, -466.66663)
 scale = Vector2(1.9070514, 1.7222223)
 texture = ExtResource("5_uvje2")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=10246945]
-layout_direction = 4
-layout_mode = 0
-offset_left = -420.0
-offset_top = -641.6666
-offset_right = 225.55554
-offset_bottom = -129.66663
-scale = Vector2(3, 3)
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=382940793]
-transparent_bg = true
-snap_2d_transforms_to_pixel = true
-snap_2d_vertices_to_pixel = true
-size = Vector2i(1842, 964)
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport" unique_id=1851623281]
-offset_left = 0.5555649
-offset_top = 15.0
-offset_right = 1896.1111
-offset_bottom = 938.3334
-stream = SubResource("VideoStreamTheora_uvje2")
-autoplay = true
-loop = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonSalir" to="." method="_on_button_salir_pressed"]

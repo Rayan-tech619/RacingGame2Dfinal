@@ -2,10 +2,17 @@
 
 [ext_resource type="Script" uid="uid://qj0wdtq4p6e" path="res://jugador.gd" id="1_b7wwv"]
 [ext_resource type="Texture2D" uid="uid://c7ic45x36qefd" path="res://Dodge Ram Rebel TRX/off road racing/car-body.png" id="1_pi76j"]
-[ext_resource type="PackedScene" uid="uid://cktkp1ltb0tvp" path="res://Ruedas.tscn" id="2_cbm0a"]
+[ext_resource type="PackedScene" uid="uid://2xdedf3el66u" path="res://ruedas.tscn" id="4_60s60"]
 [ext_resource type="Script" uid="uid://xor651st6j1e" path="res://camera_2d.gd" id="4_y8ckc"]
+[ext_resource type="PackedScene" uid="uid://bi8fqjwoal1cq" path="res://ruedas_atras.tscn" id="5_qs73i"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b7wwv"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qs73i"]
+bounce = 0.6
+
+[sub_resource type="GDScript" id="GDScript_60s60"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mkugs"]
+bounce = 0.5
 
 [node name="jugador" type="RigidBody2D" unique_id=1350755844 groups=["jugador"]]
 position = Vector2(0, 995)
@@ -13,34 +20,50 @@ script = ExtResource("1_b7wwv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=384301523]
 position = Vector2(455, 63)
-polygon = PackedVector2Array(-147, 93, 140, 93, 167, 21, 201, 15, 250, 18, 271, 25, 309, 91, 340, 82, 338, 43, 330, 40, 330, -6, 313, -23, 192, -41, 188, -35, 167, -32, 75, -80, 42, -83, -72, -81, -108, -97, -129, -71, -160, -74, -197, -52, -204, -34, -210, -18, -330, -15, -337, 12, -336, 54, -342, 59, -342, 75, -328, 85, -318, 87, -311, 82, -290, 83, -279, 44, -258, 33, -224, 26, -182, 38, -168, 57, -161, 80, -153, 86)
+polygon = PackedVector2Array(-147, 93, 140, 93, 163, 91, 196, 93, 243, 88, 278, 88, 309, 91, 340, 82, 338, 43, 330, 40, 330, -6, 313, -23, 192, -41, 188, -35, 167, -32, 75, -80, 42, -83, -72, -81, -108, -97, -129, -71, -160, -74, -197, -52, -204, -34, -210, -18, -330, -15, -337, 12, -336, 54, -342, 59, -342, 75, -328, 85, -318, 87, -311, 82, -290, 83, -247, 83, -221, 81, -193, 81, -183, 83, -173, 84, -161, 80, -153, 86)
 
-[node name="CarBody" type="Sprite2D" parent="." unique_id=1180012952]
-position = Vector2(455, 63)
+[node name="CarBody" type="Sprite2D" parent="CollisionPolygon2D" unique_id=1180012952]
 texture = ExtResource("1_pi76j")
 
-[node name="Rueda atras" parent="." unique_id=1296361257 instance=ExtResource("2_cbm0a")]
-position = Vector2(50, 10)
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_b7wwv")
-gravity_scale = 2.5
-contact_monitor = true
-max_contacts_reported = 4
+[node name="RuedaAdelante" parent="CollisionPolygon2D" unique_id=2129602004 groups=["ruedas"] instance=ExtResource("4_60s60")]
+position = Vector2(-348, -115)
+physics_material_override = SubResource("PhysicsMaterial_qs73i")
+gravity_scale = 2.0
 
-[node name="PinTrasera" type="PinJoint2D" parent="Rueda atras" unique_id=1959124566]
-position = Vector2(177, 145)
+[node name="PinTrasera2" type="PinJoint2D" parent="CollisionPolygon2D/RuedaAdelante" unique_id=572170331]
+position = Vector2(567, 236)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../..")
+softness = 2.47
 
-[node name="Rueda adelante" parent="." unique_id=1269870106 instance=ExtResource("2_cbm0a")]
-position = Vector2(498, 2)
-mass = 3.0
-gravity_scale = 2.5
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="CollisionPolygon2D/RuedaAdelante" unique_id=93762374]
+position = Vector2(567, 136)
+node_a = NodePath("../../..")
+node_b = NodePath("..")
+length = 100.0
+stiffness = 0.1
+damping = 0.01
+script = SubResource("GDScript_60s60")
 
-[node name="PinDelantera" type="PinJoint2D" parent="Rueda adelante" unique_id=556693113]
-position = Vector2(177, 146)
+[node name="RuedasAtras" parent="CollisionPolygon2D" unique_id=307590859 groups=["ruedas"] instance=ExtResource("5_qs73i")]
+position = Vector2(-429, -39)
+physics_material_override = SubResource("PhysicsMaterial_mkugs")
+gravity_scale = 2.0
+
+[node name="PinTrasera" type="PinJoint2D" parent="CollisionPolygon2D/RuedasAtras" unique_id=1959124566]
+position = Vector2(203, 169)
 node_a = NodePath("..")
-node_b = NodePath("../..")
+node_b = NodePath("../../..")
+softness = 2.47
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="CollisionPolygon2D/RuedasAtras" unique_id=1719667103]
+position = Vector2(204, 69)
+node_a = NodePath("../../..")
+node_b = NodePath("..")
+length = 100.0
+stiffness = 0.1
+damping = 0.01
+script = SubResource("GDScript_60s60")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=767168958]
 position = Vector2(707, 86)

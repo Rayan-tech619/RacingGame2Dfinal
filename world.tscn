@@ -75,8 +75,8 @@ motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1770, 600)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4" unique_id=276447205]
-position = Vector2(2424, 1825.3751)
-scale = Vector2(9.288889, 22.364582)
+position = Vector2(4317, 1825.3751)
+scale = Vector2(11.918056, 22.364582)
 texture = ExtResource("1_dwbse")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=316380593]
@@ -84,8 +84,8 @@ motion_scale = Vector2(0.3, 0)
 motion_mirroring = Vector2(500000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3" unique_id=99656598]
-position = Vector2(10107.501, 2828)
-scale = Vector2(19.90764, 19.016666)
+position = Vector2(9565.5, 2828)
+scale = Vector2(19.154861, 19.016666)
 texture = ExtResource("2_pkg7o")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=125695479]
@@ -93,8 +93,8 @@ motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1770, 600)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2" unique_id=2033282456]
-position = Vector2(2433.5002, 2290.7502)
-scale = Vector2(9.299305, 19.295834)
+position = Vector2(6248.5005, 2290.7502)
+scale = Vector2(14.597916, 19.295834)
 texture = ExtResource("3_gbfbk")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=2138274865]
@@ -108,7 +108,7 @@ texture = ExtResource("4_ioo17")
 
 [node name="jugador" parent="." unique_id=1533290505 instance=ExtResource("1_f3sb7")]
 top_level = true
-position = Vector2(-62, 319)
+position = Vector2(-116, -260)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1659894542]
 physics_material_override = SubResource("PhysicsMaterial_f3sb7")

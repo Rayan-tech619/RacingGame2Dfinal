@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgwy8aep56hh4"
-path="res://.godot/imported/pixel-art-wooden-sign-with-indicative-arrow-8bit-game-item-on-white-background-vector.jpg-2d57252d25e4d89a1fb5153e44f10cef.ctex"
+uid="uid://d26o6wnae4bne"
+path="res://.godot/imported/flecha hacia la izquierda.jpg-62e4d8eae450fa297a46ef9f77ab2322.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixel-art-wooden-sign-with-indicative-arrow-8bit-game-item-on-white-background-vector.jpg"
-dest_files=["res://.godot/imported/pixel-art-wooden-sign-with-indicative-arrow-8bit-game-item-on-white-background-vector.jpg-2d57252d25e4d89a1fb5153e44f10cef.ctex"]
+source_file="res://flecha hacia la izquierda.jpg"
+dest_files=["res://.godot/imported/flecha hacia la izquierda.jpg-62e4d8eae450fa297a46ef9f77ab2322.ctex"]
 
 [params]
 

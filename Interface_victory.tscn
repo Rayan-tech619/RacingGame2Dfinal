@@ -11,6 +11,6 @@ scale = Vector2(1.1425781, 0.66765875)
 texture = ExtResource("3_7j8c7")
 
 [node name="AdobeExpressFile" type="Sprite2D" parent="." unique_id=640618877]
-position = Vector2(669, 418.99997)
+position = Vector2(745, 417.99997)
 scale = Vector2(0.3493053, 0.26076388)
 texture = ExtResource("2_0jnl8")

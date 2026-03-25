@@ -9,6 +9,6 @@ func _on_body_entered(body):
 		print("Diamante 1")
 		anim.play("cojer")
 		await (anim.animation_finished)
-		RayanGay.Diamantes += 1
+		Contador.Diamantes += 1
 		queue_free()
 	pass

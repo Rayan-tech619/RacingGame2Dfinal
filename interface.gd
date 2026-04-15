@@ -9,7 +9,7 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scripts/world_3.tscn")
 
 
 func _on_button_4_pressed() -> void:

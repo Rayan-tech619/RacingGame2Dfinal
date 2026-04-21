@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://qj0wdtq4p6e" path="res://jugador.gd" id="1_b7wwv"]
 [ext_resource type="Texture2D" uid="uid://c7ic45x36qefd" path="res://Dodge Ram Rebel TRX/off road racing/car-body.png" id="1_pi76j"]
 [ext_resource type="PackedScene" uid="uid://2xdedf3el66u" path="res://ruedas.tscn" id="4_60s60"]
-[ext_resource type="Script" uid="uid://xor651st6j1e" path="res://camera_2d.gd" id="4_y8ckc"]
 [ext_resource type="PackedScene" uid="uid://bi8fqjwoal1cq" path="res://ruedas_atras.tscn" id="5_qs73i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qs73i"]
@@ -68,11 +67,6 @@ length = 100.0
 stiffness = 0.1
 damping = 0.01
 script = SubResource("GDScript_60s60")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1796091083]
-position = Vector2(707, 86)
-zoom = Vector2(0.13, 0.13)
-script = ExtResource("4_y8ckc")
 
 [node name="DetectorDeMuerte" type="Area2D" parent="." unique_id=1255966714]
 

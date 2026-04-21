@@ -87,5 +87,6 @@ position = Vector2(276, -494)
 position = Vector2(707, 86)
 zoom = Vector2(0.13, 0.13)
 script = ExtResource("5_bb8dg")
+zoom_normal = Vector2(0.1, 0.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="jugador" unique_id=976764034]

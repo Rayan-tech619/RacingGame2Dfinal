@@ -114,14 +114,16 @@ func explotar():
 	if freeze: return
 	freeze = true
 	
-	# 1. CONGELAR CÁMARA
-	if has_node("Camera2D"):
-		var cam = $Camera2D
-		var pos_cam = cam.global_position
-		cam.top_level = true
-		cam.global_position = pos_cam
+	# 1. CONGELAR LA CÁMARA (Sea cual sea la que estés usando)
+	# Obtenemos la cámara que está usando el juego en este momento
+	var cam = get_viewport().get_camera_2d()
+	if cam:
+		var pos_actual_cam = cam.global_position
+		cam.top_level = true # La soltamos de cualquier movimiento
+		cam.global_position = pos_actual_cam
+		print("Cámara externa congelada en: ", pos_actual_cam)
 
-	# 2. ACTIVAR ANIMACIÓN (Las partículas)
+	# 2. ACTIVAR ANIMACIÓN (Las partículas sí están en el coche)
 	if has_node("CPUParticles2D"):
 		var p = $CPUParticles2D
 		p.top_level = true
@@ -129,11 +131,10 @@ func explotar():
 		p.emitting = true
 		p.restart()
 
-	# 3. HACER DESAPARECER EL COCHE
-	# Lo volvemos invisible y lo mandamos lejos para que no estorbe
+	# 3. EL COCHE DESAPARECE
 	self.modulate.a = 0 
 	self.global_position = Vector2(-9999, -9999) 
 
-	# 4. ESPERAR Y REINICIAR
+	# 4. REINICIAR
 	await get_tree().create_timer(1.2).timeout
 	get_tree().reload_current_scene()

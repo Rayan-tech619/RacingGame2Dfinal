@@ -27,20 +27,20 @@ polygon = PackedVector2Array(-147, 93, 140, 93, 163, 91, 196, 93, 243, 88, 278, 
 [node name="CarBody" type="Sprite2D" parent="CollisionPolygon2D" unique_id=1930006741]
 texture = ExtResource("1_pi76j")
 
-[node name="RuedaAdelante" parent="CollisionPolygon2D" unique_id=326598930 groups=["g_jugador", "ruedas"] instance=ExtResource("4_60s60")]
-position = Vector2(-348, -115)
+[node name="RuedasAdelante" parent="CollisionPolygon2D" unique_id=326598930 groups=["g_jugador", "ruedas"] instance=ExtResource("4_60s60")]
+position = Vector2(-577.00006, -159)
 mass = 2.5
 physics_material_override = SubResource("PhysicsMaterial_qs73i")
 gravity_scale = 3.0
 
-[node name="PinTrasera2" type="PinJoint2D" parent="CollisionPolygon2D/RuedaAdelante" unique_id=1417931929]
-position = Vector2(567, 236)
+[node name="PinTrasera2" type="PinJoint2D" parent="CollisionPolygon2D/RuedasAdelante" unique_id=1417931929]
+position = Vector2(797.00006, 275)
 node_a = NodePath("..")
 node_b = NodePath("../../..")
 softness = 2.47
 
-[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="CollisionPolygon2D/RuedaAdelante" unique_id=378975245]
-position = Vector2(567, 136)
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="CollisionPolygon2D/RuedasAdelante" unique_id=378975245]
+position = Vector2(797.00006, 175)
 node_a = NodePath("../../..")
 node_b = NodePath("..")
 length = 100.0
@@ -49,19 +49,19 @@ damping = 0.01
 script = SubResource("GDScript_60s60")
 
 [node name="RuedasAtras" parent="CollisionPolygon2D" unique_id=913410060 groups=["ruedas"] instance=ExtResource("5_qs73i")]
-position = Vector2(-429, -39)
+position = Vector2(-434, -58)
 mass = 2.5
 physics_material_override = SubResource("PhysicsMaterial_mkugs")
 gravity_scale = 3.0
 
 [node name="PinTrasera" type="PinJoint2D" parent="CollisionPolygon2D/RuedasAtras" unique_id=1675425272]
-position = Vector2(203, 169)
+position = Vector2(203, 180)
 node_a = NodePath("..")
 node_b = NodePath("../../..")
 softness = 2.47
 
 [node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="CollisionPolygon2D/RuedasAtras" unique_id=770967509]
-position = Vector2(204, 69)
+position = Vector2(204, 79)
 node_a = NodePath("../../..")
 node_b = NodePath("..")
 length = 100.0
@@ -77,7 +77,7 @@ script = ExtResource("4_y8ckc")
 [node name="DetectorDeMuerte" type="Area2D" parent="." unique_id=1255966714]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorDeMuerte" unique_id=461424125]
-position = Vector2(453, 66.5)
+position = Vector2(454, 64)
 shape = SubResource("RectangleShape2D_60s60")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=833536406]

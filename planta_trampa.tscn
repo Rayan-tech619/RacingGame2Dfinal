@@ -195,15 +195,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp4m0"]
+radius = 18.0
+height = 68.0
+
 [node name="PlantaTrampa" type="Area2D" unique_id=203394389 groups=["trampas"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=519940737]
 sprite_frames = SubResource("SpriteFrames_vu0xw")
-animation = &"Stand"
-frame_progress = 0.38088414
+animation = &"chomp"
+frame_progress = 0.04269358
 offset = Vector2(0, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1555506494]
+position = Vector2(1, 19)
+shape = SubResource("CapsuleShape2D_wp4m0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=996997056]
 

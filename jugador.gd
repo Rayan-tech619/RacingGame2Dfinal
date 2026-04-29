@@ -106,7 +106,20 @@ func _boca_abajo():
 # SISTEMA DE EXPLOSIÓN
 # =====================
 
+# SUSTITUYE TU FUNCIÓN DE MUERTE POR ESTA:
+
 func _on_detector_de_muerte_area_entered(area: Area2D) -> void:
+	print("🔍 He tocado un Area2D llamada: ", area.name)
+	
+	# 1. LISTA BLANCA: Cosas que NO matan al jugador
+	# Añadimos "diamante" (o como se llame tu nodo de diamante)
+	if area.name == "Activar Trampa" or "diamante" in area.name.to_lower():
+		print("🛡️ Es un objeto seguro (Activador o Diamante).")
+		return 
+	
+	# 2. Si NO es nada de lo anterior, entonces sí explota
+	print("💀 EXPLOTANDO POR: ", area.name)
+	explotar()
 	if area.is_in_group("trampas"):
 		explotar()
 
@@ -114,6 +127,16 @@ func explotar():
 	if freeze: return
 	freeze = true
 	
+	# 1. CONGELAR LA CÁMARA (Sea cual sea la que estés usando)
+	# Obtenemos la cámara que está usando el juego en este momento
+	var cam = get_viewport().get_camera_2d()
+	if cam:
+		var pos_actual_cam = cam.global_position
+		cam.top_level = true # La soltamos de cualquier movimiento
+		cam.global_position = pos_actual_cam
+		print("Cámara externa congelada en: ", pos_actual_cam)
+
+	# 2. ACTIVAR ANIMACIÓN (Las partículas sí están en el coche)
 	# 1. CONGELAR CÁMARA (Restaurado)
 	if has_node("Camera2D"):
 		var cam = $Camera2D
@@ -129,10 +152,11 @@ func explotar():
 		p.emitting = true
 		p.restart()
 
+	# 3. EL COCHE DESAPARECE
 	# 3. HACER DESAPARECER EL COCHE
 	self.modulate.a = 0 
 	self.global_position = Vector2(-9999, -9999) 
 
-	# 4. ESPERAR Y REINICIAR
+	# 4. REINICIAR
 	await get_tree().create_timer(1.2).timeout
 	get_tree().reload_current_scene()

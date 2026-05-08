@@ -22,7 +22,7 @@ func _on_area_deteccion_body_entered(body):
 func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "chomp":
 		# Opción A: Vuelve a esperar (boca abierta)
-		sprite.play("Stand") 
+		sprite.play("Stand")   
 		
 		# Opción B: Si quieres que se quede un rato quieta antes de volver:
 		# await get_tree().create_timer(2.0).timeout

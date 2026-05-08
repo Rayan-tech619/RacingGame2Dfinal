@@ -1,17 +1,26 @@
 extends RigidBody2D
 
 # =====================
-# VARIABLES (Valores del Script 1)
+# VARIABLES DE DISPARO
+# =====================
+@export var misil_escena = preload("res://misil.tscn")
+var puede_disparar = true 
+
+# Referencia al punto de salida (Marker2D)
+@onready var punto_disparo = get_node_or_null("CarBody/PuntoDisparo")
+
+# =====================
+# VARIABLES DE MOVIMIENTO
 # =====================
 var ruedas = []
-var vivo = true # De Script 2: Control de vida
+var vivo = true 
 
 var velocidad = 120000
-var torque_aire = 1800000    # Script 1: Más suave
+var torque_aire = 1800000    
 var torque_suelo = 500000
-var fuerza_enderezar = 4000000000 # Script 1: Mucho más potente
+var fuerza_enderezar = 4000000000 
 
-# 👉 BOOST REAL (Valores del Script 1)
+# 👉 BOOST
 var boost_activo = false
 var tiempo_boost = 0.0
 var duracion_boost = 1.5
@@ -25,10 +34,9 @@ var ventana_tap = 0.25
 # READY
 # =====================
 func _ready():
-	# Valores de masa y gravedad del Script 1
 	mass = 17
 	gravity_scale = 7
-	angular_damp = 3.0 # De Script 1: Para evitar giros locos
+	angular_damp = 3.0 
 	
 	if has_node("RuedasUnidas1"): ruedas.append($RuedasUnidas1)
 	if has_node("RuedasUnidas2"): ruedas.append($RuedasUnidas2)
@@ -39,10 +47,14 @@ func _ready():
 			r.add_collision_exception_with(self)
 
 # =====================
-# PHYSICS (Movimiento combinado)
+# PHYSICS (Movimiento y Disparo)
 # =====================
 func _physics_process(delta):
-	if freeze or not vivo: return # De Script 2: Bloqueo si está muerto
+	if freeze or not vivo: return 
+
+	# --- LÓGICA DE DISPARO (ESPACIO) ---
+	if Input.is_action_just_pressed("ui_accept") and puede_disparar:
+		disparar_misil()
 
 	var right_pressed = Input.is_action_just_pressed("ui_right")
 	var right_hold = Input.is_action_pressed("ui_right")
@@ -65,7 +77,6 @@ func _physics_process(delta):
 			r.apply_torque_impulse(velocidad * delta * 60)
 		
 		if boost_activo:
-			# Lógica de dirección del Script 1 (más precisa)
 			var fuerza_dir = Vector2(transform.x.x, 0).normalized()
 			apply_central_impulse(fuerza_dir * fuerza_boost * delta)
 
@@ -87,12 +98,36 @@ func _physics_process(delta):
 			apply_torque_impulse(-torque_aire * delta)
 
 	# --- SISTEMA DE EMERGENCIA (ENDEREZAR) ---
-	# He puesto la lógica del Script 1 que es mejor (usa lerp/wrapf)
 	if not _en_suelo() and Input.is_action_pressed("enderezar"):
 		var target_rotation = 0 
 		var diferencia = wrapf(target_rotation - rotation, -PI, PI)
 		apply_torque(diferencia * fuerza_enderezar * delta)
 
+# =====================
+# FUNCIONES DE DISPARO
+# =====================
+func disparar_misil():
+	puede_disparar = false
+	var m = misil_escena.instantiate()
+	
+	m.scale = Vector2(5, 5) # Tamaño medio
+	
+	# Lo posicionamos en el capó
+	if punto_disparo:
+		m.global_position = punto_disparo.global_position
+	else:
+		# Si no tienes Marker2D, adelántalo un poco
+		var offset = Vector2(150, 0).rotated(rotation)
+		m.global_position = global_position + offset
+	
+	m.rotation = rotation 
+	
+	# ¡YA NO HAY LÍNEAS DE EXCEPCIÓN AQUÍ!
+	
+	get_parent().add_child(m)
+	
+	await get_tree().create_timer(0.6).timeout
+	puede_disparar = true 
 # =====================
 # FUNCIONES AUXILIARES
 # =====================
@@ -105,20 +140,14 @@ func _en_suelo():
 		if r.get_contact_count() > 0: return true
 	return false
 
-func _boca_abajo():
-	var angle = posmod(rotation, TAU)
-	return angle > PI * 0.5 and angle < PI * 1.5
-
 # =====================
-# SISTEMA DE MUERTE (Estructura del Script 2)
+# SISTEMA DE MUERTE
 # =====================
-
 func _on_detector_de_muerte_area_entered(area: Area2D) -> void:
 	if not vivo: return
 	var nombre = area.name.to_lower()
 	
-	# Filtros de colisión de Script 2
-	if "deteccion" in nombre or "activar" in nombre or "diamante" in nombre:
+	if "deteccion" in nombre or "activar" in nombre or "diamante" in nombre or "portal" in nombre or "punto" in nombre:
 		return 
 	
 	if area.name == "BocaColision":
@@ -128,31 +157,49 @@ func _on_detector_de_muerte_area_entered(area: Area2D) -> void:
 	explotar()
 
 func explotar():
+	# 1. Guardamos la posición antes del caos
+	var pos_impacto = global_position
+	
 	_preparar_muerte()
 	
-	var particulas = get_node_or_null("CPUParticles2D")
-	if particulas:
-		particulas.process_mode = PROCESS_MODE_ALWAYS
-		particulas.top_level = true 
-		particulas.global_position = global_position
-		particulas.emitting = true
-		particulas.restart()
+	# 2. INSTANCIAR EXPLOSIÓN
+	var exp = misil_escena.instantiate()
+	get_parent().add_child(exp)
+	exp.global_position = pos_impacto
+	exp.scale = Vector2(8, 8)
+	if exp.has_method("explotar"):
+		exp.explotar()
 
-	await get_tree().create_timer(1.2).timeout
+	# 3. CÁMARA CON ZOOM MÍNIMO
+	var cam = get_viewport().get_camera_2d()
+	if cam:
+		cam.position_smoothing_enabled = false 
+		cam.top_level = true 
+		cam.global_position = pos_impacto
+		
+		# Forzamos que empiece en el zoom normal (1, 1)
+		cam.zoom = Vector2(0.3, 0.3)
+		
+		var tw = create_tween().set_parallel(true)
+		
+		# --- ZOOM MUY PEQUEÑO (1.05) ---
+		# Es solo un 5% de acercamiento. Casi nada.
+		tw.tween_property(cam, "zoom", Vector2(0.2, 0.2), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		
+		# Centramos la cámara suavemente
+		tw.tween_property(cam, "global_position", pos_impacto, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	await get_tree().create_timer(1.8).timeout
 	get_tree().reload_current_scene()
 
 func ser_devorado():
 	_preparar_muerte()
-	
-	# Lógica visual de Script 2
 	if has_node("EfectoMuerte"):
 		$EfectoMuerte.visible = true
 		var tw = create_tween().set_parallel(true)
 		tw.tween_property($EfectoMuerte/TrozoDelantero, "position", Vector2(30, 10), 0.6)
 		tw.tween_property($EfectoMuerte/TrozoTrasero, "position", Vector2(-30, 10), 0.6)
 		tw.tween_property($EfectoMuerte, "modulate:a", 0, 0.5).set_delay(0.8)
-
-	print("¡El coche ha sido partido y devorado!")
 
 func _preparar_muerte():
 	if not vivo: return
@@ -161,15 +208,8 @@ func _preparar_muerte():
 	linear_velocity = Vector2.ZERO 
 	angular_velocity = 0
 	
-	# Manejo de Cámara y Zoom (Script 2)
-	var cam = get_viewport().get_camera_2d()
-	if cam:
-		cam.top_level = true 
-		cam.global_position = cam.get_screen_center_position()
-		var tw_cam = create_tween()
-		tw_cam.tween_property(cam, "zoom", Vector2(1, 1), 0.3)
-
-	# Ocultar coche
+	# --- AQUÍ YA NO HAY NADA DE CÁMARA (LIMPIO) ---
+	
 	if has_node("CarBody"): 
 		$CarBody.visible = false
 	else: 

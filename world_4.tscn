@@ -44,6 +44,11 @@ texture = ExtResource("1_eqhq6")
 [sub_resource type="TileSet" id="TileSet_155be"]
 sources/0 = SubResource("TileSetAtlasSource_y37hy")
 
+[sub_resource type="LabelSettings" id="LabelSettings_0pthf"]
+font_size = 20
+font_color = Color(1, 0.34509805, 0.5058824, 1)
+shadow_size = 3
+
 [node name="World4" type="Node2D" unique_id=1622494145]
 script = ExtResource("1_0pthf")
 
@@ -903,6 +908,15 @@ scale = Vector2(0.3, 0.3)
 script = ExtResource("5_p6hiv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="jugador" unique_id=1611419737]
+
+[node name="Label" type="Label" parent="jugador/CanvasLayer" unique_id=1746636875]
+offset_left = 217.0
+offset_top = 255.0
+offset_right = 517.0
+offset_bottom = 335.0
+text = "DIAMANTES:💎"
+label_settings = SubResource("LabelSettings_0pthf")
+metadata/_edit_use_anchors_ = true
 
 [node name="Finish" type="Sprite2D" parent="." unique_id=159015969]
 position = Vector2(13095.999, -789.5)

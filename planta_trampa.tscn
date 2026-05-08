@@ -25,63 +25,67 @@ region = Rect2(191, 8, 65, 109)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8gab"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(19, 218, 78, 93)
+region = Rect2(18, 221, 79, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd5s8"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(93, 218, 78, 93)
+region = Rect2(98, 221, 67, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6ak5"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(160, 220, 65, 91)
+region = Rect2(163, 221, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikiqu"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(219, 220, 60, 91)
+region = Rect2(219, 221, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4n2n"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(272, 220, 60, 91)
+region = Rect2(275, 221, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkhcb"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(326, 220, 60, 91)
+region = Rect2(331, 221, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffhci"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(12, 319, 60, 80)
+region = Rect2(14, 309, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch4gk"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(72, 319, 60, 80)
+region = Rect2(70, 309, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plrv0"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(132, 308, 60, 93)
+region = Rect2(126, 309, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ht77x"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(182, 308, 60, 93)
+region = Rect2(182, 309, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rn1x"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(233, 308, 60, 93)
+region = Rect2(233, 308, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxjwe"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(288, 308, 60, 93)
+region = Rect2(289, 308, 56, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhh0q"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(392, 311, 58, 94)
+region = Rect2(341, 308, 52, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sore6"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(441, 311, 58, 94)
+region = Rect2(393, 308, 52, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tq0do"]
 atlas = ExtResource("1_wp4m0")
-region = Rect2(10, 392, 64, 78)
+region = Rect2(443, 308, 52, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu0xw"]
+atlas = ExtResource("1_wp4m0")
+region = Rect2(13, 392, 57, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjjyd"]
 atlas = ExtResource("1_wp4m0")
@@ -171,6 +175,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tq0do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu0xw")
 }],
 "loop": false,
 "name": &"Tragar",
@@ -210,6 +217,7 @@ height = 52.0
 [node name="PlantaTrampa" type="Area2D" unique_id=203394389 groups=["trampas"]]
 z_index = 5
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_b1al2")
 
 [node name="BocaColision" type="Area2D" parent="." unique_id=440385727]
@@ -221,10 +229,12 @@ shape = SubResource("CapsuleShape2D_wp4m0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=519940737]
 texture_filter = 1
-position = Vector2(10, -27)
+position = Vector2(6, -2)
 sprite_frames = SubResource("SpriteFrames_vu0xw")
-animation = &"Tragar"
+animation = &"chomp"
 autoplay = "chomp"
+frame = 5
+frame_progress = 1.0
 offset = Vector2(0, 10)
 flip_h = true
 

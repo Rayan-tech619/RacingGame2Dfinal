@@ -81,7 +81,7 @@ motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1770, 600)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4" unique_id=419902846]
-position = Vector2(16404, 4748)
+position = Vector2(11714.998, 5334)
 scale = Vector2(28.409721, 43.936806)
 texture = ExtResource("1_mv2s0")
 
@@ -114,14 +114,12 @@ texture = ExtResource("4_eiokd")
 
 [node name="jugador" parent="." unique_id=1632514651 instance=ExtResource("5_ngp3s")]
 top_level = true
-position = Vector2(-104, -415)
+position = Vector2(1344, 177)
 
 [node name="Camera2D2" type="Camera2D" parent="jugador" unique_id=407919300 groups=["trampas"]]
 position = Vector2(707, 86)
 zoom = Vector2(0.13, 0.13)
 script = ExtResource("7_i60kn")
-zoom_normal = Vector2(0.1, 0.1)
-zoom_acelerar = Vector2(0.2, 0.2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="jugador" unique_id=936951121]
 
@@ -152,7 +150,7 @@ position = Vector2(17068, 2722)
 scale = Vector2(10, 10)
 
 [node name="Diamante4" parent="." unique_id=164919379 groups=["jugador"] instance=ExtResource("7_56e56")]
-position = Vector2(7760, -205)
+position = Vector2(7483, -124.00001)
 scale = Vector2(10, 10)
 
 [node name="Diamante3" parent="." unique_id=1183063592 groups=["jugador"] instance=ExtResource("7_56e56")]
@@ -169,6 +167,7 @@ scale = Vector2(10, 10)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1481340]
 position = Vector2(-140, -105)
+collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_q40lw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Floor" unique_id=574997410]
@@ -265,11 +264,26 @@ polygon = PackedVector2Array(62.33911, 7.4328613, 53.688354, 8.409241, 48.426514
 position = Vector2(4835, 404.00003)
 scale = Vector2(10, 10)
 
-[node name="AnimatedSprite2D" parent="PlantaTrampa" index="1" unique_id=519940737]
-position = Vector2(19.199999, 1.4999962)
+[node name="BocaColision" parent="PlantaTrampa" index="0" unique_id=440385727]
+position = Vector2(0, -3.0517576e-06)
 
-[node name="CollisionShape2D" parent="PlantaTrampa/AreaDeteccion" parent_id_path=PackedInt32Array(203394389, 996997056) index="0" unique_id=170819132]
-position = Vector2(-102.700005, 10.500001)
+[node name="CollisionShape2D" parent="PlantaTrampa/BocaColision" index="0" unique_id=1555506494]
+position = Vector2(330.3, -51.699997)
+
+[node name="AnimatedSprite2D" parent="PlantaTrampa" index="1" unique_id=519940737]
+position = Vector2(351.3, -68.5)
+
+[node name="AreaDeteccion" parent="PlantaTrampa" index="2" unique_id=996997056]
+position = Vector2(341.8, -51.999996)
+
+[node name="CollisionShape2D" parent="PlantaTrampa/AreaDeteccion" index="0" unique_id=170819132]
+position = Vector2(-85.20001, 10.4999895)
+
+[node name="CollisionShape2D" parent="PlantaTrampa" index="3" unique_id=476892582]
+position = Vector2(363.69998, -40.1)
+
+[node name="PlantaTrampa" parent="PlantaTrampa" unique_id=394092770 instance=ExtResource("15_pdx2o")]
+position = Vector2(13.299993, 0.19999504)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered_world2"]
 

@@ -150,10 +150,9 @@ position = Vector2(712, -139)
 
 [node name="Camera2D2" type="Camera2D" parent="jugador" unique_id=1177145475]
 position = Vector2(707, 86)
-zoom = Vector2(0.13, 0.13)
+zoom = Vector2(0.1, 0.1)
 script = ExtResource("12_pledc")
 zoom_normal = Vector2(0.2, 0.2)
-zoom_acelerar = Vector2(0.1, 0.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="jugador" unique_id=1498863310]
 

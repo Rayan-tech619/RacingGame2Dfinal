@@ -120,16 +120,17 @@ stiffness = 0.1
 damping = 0.01
 
 [node name="EfectoMuerte" type="Node2D" parent="." unique_id=399911262]
-visible = false
 
 [node name="TrozoDelantero" type="Sprite2D" parent="EfectoMuerte" unique_id=1787555578]
-position = Vector2(1375, 80)
+visible = false
+position = Vector2(-605, 894)
 texture = ExtResource("5_60s60")
 region_enabled = true
 region_rect = Rect2(336.5, 0, 354.5, 257)
 
 [node name="TrozoTrasero" type="Sprite2D" parent="EfectoMuerte" unique_id=254156428]
-position = Vector2(1138, -285)
+visible = false
+position = Vector2(-672, 418)
 texture = ExtResource("5_60s60")
 region_enabled = true
 region_rect = Rect2(0, 0, 341.5, 257)

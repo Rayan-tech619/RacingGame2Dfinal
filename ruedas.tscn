@@ -1,21 +1,20 @@
-[gd_scene format=3 uid="uid://2xdedf3el66u"]
+[gd_scene format=3 uid="uid://cktkp1ltb0tvp"]
 
-[ext_resource type="Texture2D" uid="uid://cagqslakvyey2" path="res://Dodge Ram Rebel TRX/off road racing/car-wheel.png" id="1_p6x0s"]
-[ext_resource type="Script" uid="uid://b16m4u8degkhp" path="res://ruedas.gd" id="1_wq2b3"]
+[ext_resource type="Texture2D" uid="uid://cagqslakvyey2" path="res://Dodge Ram Rebel TRX/off road racing/car-wheel.png" id="1_bjjik"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k2rad"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbm6n"]
 radius = 82.036575
 
-[node name="RuedasAdelante" type="RigidBody2D" unique_id=2129602004]
+[node name="ruedas" type="RigidBody2D" unique_id=469649969 groups=["ruedas"]]
+position = Vector2(0, 13)
 gravity_scale = 40.0
-script = ExtResource("1_wq2b3")
 
-[node name="CarWheel" type="Sprite2D" parent="." unique_id=1214460784]
-position = Vector2(796, 272.2)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("1_p6x0s")
+[node name="CarWheel" type="Sprite2D" parent="." unique_id=465963203]
+position = Vector2(202, 167.75)
+scale = Vector2(1.4166667, 1.3991597)
+texture = ExtResource("1_bjjik")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=642703620]
-position = Vector2(797, 271.95)
-scale = Vector2(1.2, 1.2)
-shape = SubResource("CircleShape2D_k2rad")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1467541198]
+position = Vector2(201.99997, 169)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_cbm6n")

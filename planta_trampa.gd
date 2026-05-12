@@ -32,17 +32,13 @@ func _on_animated_sprite_2d_animation_finished():
 # En el script de la planta (planta_trampa.gd)
 func _on_boca_colision_body_entered(body):
 	if body.has_method("ser_devorado"):
-		# El coche desaparece y la cámara se clava
-		body.ser_devorado() 
-		
-		# Hacemos que la planta trague
+		# Le pasamos la posición de la planta para que la cámara sepa a dónde mirar
+		body.ser_devorado(global_position) 
+
+		# Animación de tragar
 		sprite.play("Tragar")
-		
-		# ESPERAMOS a que la animación termine (solo funciona si Loop está apagado)
+
+		# Esperas y respawn
 		await sprite.animation_finished
-		
-		# Un pequeño respiro de 0.3 segundos para que no sea tan brusco
 		await get_tree().create_timer(0.3).timeout
-		
-		# ¡RESPAWN!
 		get_tree().reload_current_scene()

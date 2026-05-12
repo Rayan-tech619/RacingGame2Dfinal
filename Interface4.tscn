@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cu30axl4s5l3"]
+[gd_scene load_steps=4 format=3 uid="uid://cu30axl4s5l3"]
 
 [ext_resource type="Script" uid="uid://crbixx6c38nak" path="res://interface.gd" id="1_i1s7n"]
 [ext_resource type="Texture2D" uid="uid://cyla6nyk7rtnw" path="res://Interfaces/Nivel 4 interface.jpg" id="2_etsrp"]
@@ -6,7 +6,7 @@
 [sub_resource type="ButtonGroup" id="ButtonGroup_kyn48"]
 allow_unpress = true
 
-[node name="Niveles" type="Control" unique_id=1540842934]
+[node name="Niveles" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i1s7n")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=529702049]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1728327, 0.17283267, 0.17283267, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1640781293]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1529335808]
+[node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
@@ -52,14 +52,14 @@ text = "LEVELS
 
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=376121679]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 333.0
 offset_top = 290.0
 offset_right = 460.0
 offset_bottom = 376.0
 
-[node name="Button2" type="Button" parent="VBoxContainer2" unique_id=1189008961]
+[node name="Button2" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
@@ -69,14 +69,14 @@ s
 s
 "
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=54825347]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 533.0
 offset_top = 283.0
 offset_right = 647.0
 offset_bottom = 379.0
 
-[node name="Button3" type="Button" parent="VBoxContainer3" unique_id=1916376663]
+[node name="Button3" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
@@ -87,14 +87,14 @@ s
 
 "
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=1337720972]
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 731.0
 offset_top = 293.0
 offset_right = 844.0
 offset_bottom = 377.0
 
-[node name="Button4" type="Button" parent="VBoxContainer4" unique_id=856666224]
+[node name="Button4" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kyn48")
@@ -105,7 +105,7 @@ s
 
 "
 
-[node name="Nivel4Interface" type="Sprite2D" parent="." unique_id=1658627918]
+[node name="Nivel4Interface" type="Sprite2D" parent="."]
 position = Vector2(584, 342)
 scale = Vector2(0.936, 0.822)
 texture = ExtResource("2_etsrp")

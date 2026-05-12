@@ -9,12 +9,12 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://world_3.tscn")
+	get_tree().change_scene_to_file("res://scripts/world_3.tscn")
 
 
 func _on_button_4_pressed() -> void:
-	get_tree().change_scene_to_file("res://world_4.tscn")
+	get_tree().change_scene_to_file("res://scripts/world_4.tscn")
 
 
 func _on_button_5_pressed() -> void:
-	get_tree().change_scene_to_file("res://world_5.tscn")
+	get_tree().change_scene_to_file("res://scripts/world_5.tscn")

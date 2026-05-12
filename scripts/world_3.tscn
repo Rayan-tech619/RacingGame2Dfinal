@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://dn223w4pbn8aj"]
+[gd_scene load_steps=15 format=4 uid="uid://bt1lq7h6dosg5"]
 
 [ext_resource type="Texture2D" uid="uid://crwpmyhlfnjm0" path="res://FondoNegro.png" id="1_1ivc2"]
 [ext_resource type="Texture2D" uid="uid://byte7webcs6m3" path="res://suelo/tileset_lava.png" id="1_bdyje"]
-[ext_resource type="Script" uid="uid://g0kkocqvy300" path="res://world_3.gd" id="1_w512l"]
+[ext_resource type="Script" uid="uid://78v7ibdk1r08" path="res://world_3.gd" id="1_w512l"]
 [ext_resource type="Texture2D" uid="uid://cafdkm1e5xdga" path="res://cielo.png" id="3_bk3r8"]
 [ext_resource type="PackedScene" uid="uid://c1serxxj2dyph" path="res://Carroceria.tscn" id="3_xnej2"]
 [ext_resource type="Script" uid="uid://xor651st6j1e" path="res://camera_2d.gd" id="4_usgg7"]
@@ -60,14 +60,14 @@ texture = ExtResource("1_bdyje")
 sources/0 = SubResource("TileSetAtlasSource_1ivc2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx14w"]
-size = Vector2(440, 392)
+size = Vector2(418, 336)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6c7x5"]
 font_size = 20
 font_color = Color(1, 0.34509805, 0.5058824, 1)
 shadow_size = 3
 
-[node name="World_3" type="Node2D"]
+[node name="world_3" type="Node2D"]
 script = ExtResource("1_w512l")
 
 [node name="floor" type="StaticBody2D" parent="."]
@@ -129,7 +129,7 @@ scale = Vector2(7.6443715, 2.9663794)
 texture = ExtResource("1_1ivc2")
 
 [node name="FondoNegro3" type="Sprite2D" parent="floor/FondoNegro3/FondoNegro4/FondoNegro3/FondoNegro4"]
-position = Vector2(-150.38588, -96.737114)
+position = Vector2(-150.39424, -96.49515)
 scale = Vector2(0.4219564, 2.9663794)
 texture = ExtResource("1_1ivc2")
 
@@ -353,7 +353,7 @@ tile_set = SubResource("TileSet_1qr7s")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="floor"]
 position = Vector2(30, 6)
-polygon = PackedVector2Array(-4, -25, 0, -132, 84, -135, 162.09999, -132.4, 556.1, -133.4, 664.1, -131.79999, 1187.6, -136.49998, 1279.6, -133.29999, 1706.9999, -132.79999, 1710.5999, -323.49997, 1836.8999, -322.3, 1845, -479, 2027.6693, -471.53998, 2207.4, -464.19998, 2208.4, -322.19998, 2530.5999, -321.19998, 2538, -476, -6.8999996, -475.09998, -1, -136)
+polygon = PackedVector2Array(-4, -25, 0, -132, 84, -135, 162.09999, -132.4, 556.1, -133.4, 664.1, -131.79999, 1187.6, -136.49998, 1279.6, -133.29999, 1706.9999, -132.79999, 1710.5999, -323.49997, 1836.8999, -322.3, 1845, -479, 2207.4, -464.19998, 2208.4, -322.19998, 2530.5999, -321.19998, 2538, -476, -6.8999996, -475.09998, -1, -136)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="floor"]
 position = Vector2(30, 6)
@@ -383,33 +383,34 @@ scale = Vector2(0.9999998, 0.9999998)
 polygon = PackedVector2Array(1100.8999, 83.799995, 1149.7999, 85.299995, 1147.4999, 106.799995, 1136.3999, 119.299995, 1109.1, 114.2, 1101.7, 93.399994)
 
 [node name="Finish" type="Sprite2D" parent="."]
-position = Vector2(24084, -1873.0001)
-scale = Vector2(0.88476086, 0.7661138)
+position = Vector2(24061, -1847.25)
+scale = Vector2(0.832032, 0.7666019)
 texture = ExtResource("5_usgg7")
 
 [node name="Area2D" type="Area2D" parent="." groups=["trampas"]]
-position = Vector2(24082, -1956)
+position = Vector2(23856, -1811)
 collision_layer = 14
 collision_mask = 15
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(206, -53)
 shape = SubResource("RectangleShape2D_wx14w")
 
-[node name="Portal4" parent="." instance=ExtResource("7_wx14w")]
-position = Vector2(21088, -1772)
-rotation = -3.1415925
+[node name="Portal" parent="Area2D" instance=ExtResource("7_wx14w")]
+position = Vector2(-2768, 39)
+rotation = 3.1415927
 scale = Vector2(10, 10)
 
-[node name="AnimatedSprite2D" parent="Portal4" index="0"]
+[node name="AnimatedSprite2D" parent="Area2D/Portal" index="0"]
 position = Vector2(3.8918839, -6.198883e-06)
 scale = Vector2(0.95310986, 1)
 
-[node name="Punto de salida" parent="Portal4" index="2"]
+[node name="Punto de salida" parent="Area2D/Portal" index="2"]
 position = Vector2(310.20044, -101.700195)
 
 [node name="jugador" parent="." instance=ExtResource("3_xnej2")]
 top_level = true
-position = Vector2(696, -1025)
+position = Vector2(16229, 150)
 
 [node name="Camera2D2" type="Camera2D" parent="jugador"]
 position = Vector2(707, 86)
@@ -451,16 +452,16 @@ scale = Vector2(10, 10)
 position = Vector2(23341, -1968.0015)
 scale = Vector2(10, 10)
 
-[node name="AreaTrampa" type="Area2D" parent="." groups=["trampas"]]
+[node name="Area2D2" type="Area2D" parent="." groups=["trampas"]]
 position = Vector2(49148, 7345)
 
-[node name="CapturaDesde20260408191533RemovebgPreview" type="Sprite2D" parent="AreaTrampa"]
+[node name="CapturaDesde20260408191533RemovebgPreview" type="Sprite2D" parent="Area2D2"]
 position = Vector2(-28644.25, -4576.5)
 rotation = -3.1415925
 scale = Vector2(24.641134, 7.8951607)
 texture = ExtResource("8_5fw0f")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaTrampa"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
 position = Vector2(25165.54, 190.50098)
 scale = Vector2(1.902022, 1.0000001)
 polygon = PackedVector2Array(-29130.861, -4807.5, -29144.531, -5069.5, -27400, -5065, -27370, -4484, -29124.027, -4531.5)
@@ -496,7 +497,7 @@ position = Vector2(306.20044, -113.200195)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered_world_3"]
 
-[editable path="Portal4"]
+[editable path="Area2D/Portal"]
 [editable path="Portal"]
 [editable path="Portal2"]
 [editable path="Portal3"]

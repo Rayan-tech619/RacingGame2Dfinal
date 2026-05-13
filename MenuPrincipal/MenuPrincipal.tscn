@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlflupnivl7gr"]
+[gd_scene load_steps=8 format=3 uid="uid://dlflupnivl7gr"]
 
 [ext_resource type="Theme" uid="uid://bjkk76vhmdm1k" path="res://Temas/MenuPrincipal.tres" id="1_w42t8"]
 [ext_resource type="Script" uid="uid://cafxyg212cuyf" path="res://MenuPrincipal/menu_principal.gd" id="1_wekhl"]
-[ext_resource type="Script" uid="uid://d4bfnn7gif1e6" path="res://MenuPrincipal/button_2.gd" id="2_n362c"]
 [ext_resource type="FontFile" uid="uid://ybbrq4s7dgpt" path="res://Fuentes/quadrillion/Quadrillion Sb It.otf" id="4_35d3t"]
 [ext_resource type="Texture2D" uid="uid://cu2rpa2h5dx2n" path="res://Texturas/Cool Text - RUMPTRUCK 498263355235577.png" id="5_uvje2"]
 
@@ -46,10 +45,10 @@ size = Vector2i(650, 500)
 render_target_update_mode = 4
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport"]
-offset_left = -40.555542
-offset_top = -15.0
-offset_right = 1855.0
-offset_bottom = 908.3334
+offset_left = -49.444427
+offset_top = -7.222223
+offset_right = 1846.1111
+offset_bottom = 916.11115
 stream = SubResource("VideoStreamTheora_uvje2")
 autoplay = true
 loop = true
@@ -62,12 +61,13 @@ anchor_top = 0.5
 anchor_right = 0.57600003
 anchor_bottom = 0.5
 offset_left = -995.0
-offset_top = -390.0
-offset_right = 858.8
-offset_bottom = 379.0
+offset_top = -741.6666
+offset_right = 875.4666
+offset_bottom = 421.66675
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
+alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -87,16 +87,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_n362c")
 text = "Jugar"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_wekhl")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_35d3t")
-text = "Configuracion"
-script = ExtResource("2_n362c")
-
 [node name="ButtonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_wekhl")
@@ -107,8 +97,8 @@ theme_override_fonts/font = ExtResource("4_35d3t")
 text = "Salir"
 
 [node name="CoolTextRumptruck498263355235577" type="Sprite2D" parent="."]
-position = Vector2(615.00006, -466.66663)
-scale = Vector2(1.9070514, 1.7222223)
+position = Vector2(605.8334, -362.49994)
+scale = Vector2(1.9577991, 3.2916667)
 texture = ExtResource("5_uvje2")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

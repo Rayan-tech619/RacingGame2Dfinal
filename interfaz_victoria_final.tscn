@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfioosls6c14g"]
+
+[ext_resource type="Script" uid="uid://b6te554weaujn" path="res://interfaz_victoria_final.gd" id="1_xim6h"]
+[ext_resource type="Texture2D" uid="uid://bmmp8a64dgnu2" path="res://Te has pasado el juego.png" id="2_yodtk"]
+[ext_resource type="FontFile" uid="uid://ybbrq4s7dgpt" path="res://Fuentes/quadrillion/Quadrillion Sb It.otf" id="3_soyn3"]
+
+[sub_resource type="Theme" id="Theme_cg8jf"]
+Button/font_sizes/font_size = 80
+
+[node name="InterfazVictoriaFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xim6h")
+
+[node name="TeHasPasadoElJuego" type="Sprite2D" parent="."]
+position = Vector2(582, 277.12503)
+scale = Vector2(0.74804693, 0.720459)
+texture = ExtResource("2_yodtk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TeHasPasadoElJuego"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.57600003
+anchor_bottom = 0.5
+offset_left = -1512.6057
+offset_top = -1014.631
+offset_right = -125.425476
+offset_bottom = 806.5233
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ButtonSalir" type="Button" parent="TeHasPasadoElJuego/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cg8jf")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_soyn3")
+text = "Finalizar
+"
+
+[connection signal="pressed" from="TeHasPasadoElJuego/VBoxContainer/ButtonSalir" to="." method="_on_button_salir_pressed"]

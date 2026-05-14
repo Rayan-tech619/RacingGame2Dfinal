@@ -76,8 +76,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3v5"]
-radius = 12.4001465
-height = 137.39996
+radius = 36.5
+height = 161.79999
 
 [node name="Portal" type="Area2D"]
 script = ExtResource("1_ef3v5")

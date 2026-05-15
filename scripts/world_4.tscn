@@ -220,33 +220,6 @@ polygon = PackedVector2Array(5056.6997, -158.2, 5059.0996, 12.799999, 5199.0996,
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Floor"]
 polygon = PackedVector2Array(4368.9995, -81.49999, 4368.9995, -256.49997, 4509.9, -255.69998, 4511.4995, -81.49999)
 
-[node name="jugador" parent="." instance=ExtResource("4_057w0")]
-top_level = true
-position = Vector2(2003, -2175)
-
-[node name="Camera2D2" type="Camera2D" parent="jugador"]
-position = Vector2(455, 80)
-scale = Vector2(0.1, 0.1)
-script = ExtResource("5_p6hiv")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="jugador"]
-
-[node name="Label" type="Label" parent="jugador/CanvasLayer"]
-anchors_preset = -1
-anchor_left = -0.15538195
-anchor_top = -0.27160493
-offset_left = 219.0
-offset_top = 232.99998
-offset_right = 519.0
-offset_bottom = 313.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 0)
-theme_override_fonts/font = ExtResource("9_m8bli")
-theme_override_font_sizes/font_size = 50
-text = "DIAMANTES:💎"
-label_settings = SubResource("LabelSettings_0pthf")
-metadata/_edit_use_anchors_ = true
-
 [node name="Portal" parent="." instance=ExtResource("7_nw1vj")]
 position = Vector2(3425, -468)
 scale = Vector2(9, 9)
@@ -273,6 +246,33 @@ position = Vector2(-1.6666565, -13.222222)
 
 [node name="Punto de salida" parent="Portal/Portal" index="2"]
 position = Vector2(-1495.5555, 729.77783)
+
+[node name="jugador" parent="." instance=ExtResource("4_057w0")]
+top_level = true
+position = Vector2(2003, -2175)
+
+[node name="Camera2D2" type="Camera2D" parent="jugador"]
+position = Vector2(455, 80)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("5_p6hiv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="jugador"]
+
+[node name="Label" type="Label" parent="jugador/CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.15538195
+anchor_top = -0.27160493
+offset_left = 219.0
+offset_top = 232.99998
+offset_right = 519.0
+offset_bottom = 313.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 0)
+theme_override_fonts/font = ExtResource("9_m8bli")
+theme_override_font_sizes/font_size = 50
+text = "DIAMANTES:💎"
+label_settings = SubResource("LabelSettings_0pthf")
+metadata/_edit_use_anchors_ = true
 
 [node name="AreaTrampa" type="Area2D" parent="." groups=["trampas"]]
 position = Vector2(11746, -15)

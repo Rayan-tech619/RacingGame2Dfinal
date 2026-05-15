@@ -180,6 +180,53 @@ polygon = PackedVector2Array(4125.5996, 365.99997, 4319.6997, 366.99997, 4316.69
 [node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="Floor"]
 polygon = PackedVector2Array(-6.9999995, -55.199997, -128.6961, -55.078674, -408.3, -54.799995, -404.69998, 303.49997, 85.799995, 302.9, 86.399994, 335.9, -528.89996, 336.49997, -527.69995, -114.899994, -3.6999998, -116.399994)
 
+[node name="Portal4" parent="." instance=ExtResource("8_ehw82")]
+position = Vector2(17751.002, -2136)
+rotation = -3.1415925
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" parent="Portal4" index="0"]
+position = Vector2(1.4001999, -0.7000065)
+rotation = 3.1415927
+scale = Vector2(1.9664985, 1.5257834)
+
+[node name="CollisionShape2D" parent="Portal4" index="1"]
+position = Vector2(-1.0998077, 0.6000061)
+
+[node name="Punto de salida" parent="Portal4" index="2"]
+position = Vector2(-303.79984, 251.10004)
+scale = Vector2(0.93236905, 1.0391818)
+
+[node name="Portal5" parent="." instance=ExtResource("8_ehw82")]
+position = Vector2(35403, 2336.9998)
+rotation = -3.1415925
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" parent="Portal5" index="0"]
+position = Vector2(-0.31270885, -15.046936)
+scale = Vector2(1.3387897, 1.2788782)
+
+[node name="CollisionShape2D" parent="Portal5" index="1"]
+position = Vector2(-2.3000698, -18.200035)
+
+[node name="Punto de salida" parent="Portal5" index="2"]
+position = Vector2(2174.5, 517.19965)
+
+[node name="Portal6" parent="." instance=ExtResource("8_ehw82")]
+position = Vector2(1168.0001, 2820)
+rotation = -3.1415925
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" parent="Portal6" index="0"]
+position = Vector2(10.200008, 3.7000103)
+scale = Vector2(0.5377594, 0.44979554)
+
+[node name="CollisionShape2D" parent="Portal6" index="1"]
+position = Vector2(2.6000166, 16.000006)
+
+[node name="Punto de salida" parent="Portal6" index="2"]
+position = Vector2(-4276.2, -31.499355)
+
 [node name="jugador" parent="." instance=ExtResource("4_141ph")]
 top_level = true
 position = Vector2(1922, -2121)
@@ -257,23 +304,6 @@ collision_layer = 2
 position = Vector2(-3541.448, 1283.1044)
 shape = SubResource("RectangleShape2D_141ph")
 
-[node name="Portal4" parent="." instance=ExtResource("8_ehw82")]
-position = Vector2(17751.002, -2136)
-rotation = -3.1415925
-scale = Vector2(10, 10)
-
-[node name="AnimatedSprite2D" parent="Portal4" index="0"]
-position = Vector2(1.4001999, -0.7000065)
-rotation = 3.1415927
-scale = Vector2(1.9664985, 1.5257834)
-
-[node name="CollisionShape2D" parent="Portal4" index="1"]
-position = Vector2(-1.0998077, 0.6000061)
-
-[node name="Punto de salida" parent="Portal4" index="2"]
-position = Vector2(-303.79984, 251.10004)
-scale = Vector2(0.93236905, 1.0391818)
-
 [node name="Finish" type="Sprite2D" parent="."]
 position = Vector2(44677, 4740)
 texture = ExtResource("9_4q1d7")
@@ -314,36 +344,6 @@ scale = Vector2(10, 10)
 [node name="Diamante7" parent="." groups=["jugador"] instance=ExtResource("10_h0jgd")]
 position = Vector2(13312, -2441.9998)
 scale = Vector2(10, 10)
-
-[node name="Portal5" parent="." instance=ExtResource("8_ehw82")]
-position = Vector2(35403, 2336.9998)
-rotation = -3.1415925
-scale = Vector2(10, 10)
-
-[node name="AnimatedSprite2D" parent="Portal5" index="0"]
-position = Vector2(-0.31270885, -15.046936)
-scale = Vector2(1.3387897, 1.2788782)
-
-[node name="CollisionShape2D" parent="Portal5" index="1"]
-position = Vector2(-2.3000698, -18.200035)
-
-[node name="Punto de salida" parent="Portal5" index="2"]
-position = Vector2(2174.5, 517.19965)
-
-[node name="Portal6" parent="." instance=ExtResource("8_ehw82")]
-position = Vector2(1168.0001, 2820)
-rotation = -3.1415925
-scale = Vector2(10, 10)
-
-[node name="AnimatedSprite2D" parent="Portal6" index="0"]
-position = Vector2(10.200008, 3.7000103)
-scale = Vector2(0.5377594, 0.44979554)
-
-[node name="CollisionShape2D" parent="Portal6" index="1"]
-position = Vector2(2.6000166, 16.000006)
-
-[node name="Punto de salida" parent="Portal6" index="2"]
-position = Vector2(-4276.2, -31.499355)
 
 [node name="Area2D3" type="Area2D" parent="." groups=["trampas"]]
 position = Vector2(38433, 7094)

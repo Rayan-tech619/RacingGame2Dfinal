@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e35dbbca1p1l" path="res://misil.gd" id="1_pjauq"]
 [ext_resource type="Texture2D" uid="uid://ctwjrkdb35b02" path="res://image-removebg-preview(1).png" id="2_wftj6"]
+[ext_resource type="AudioStream" uid="uid://bscpdlg71aqj1" path="res://impact_explosion_03_UhRGks5.mp3" id="3_wftj6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tiy7w"]
 atlas = ExtResource("2_wftj6")
@@ -119,6 +120,10 @@ frame_progress = 0.21346256
 position = Vector2(1, -11)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_guvqh")
+
+[node name="sfx_explosion_misil" type="AudioStreamPlayer2D" parent="." unique_id=1411950140]
+stream = ExtResource("3_wftj6")
+pitch_scale = 1.2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

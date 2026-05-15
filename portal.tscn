@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmtdpxw0okel6"]
+[gd_scene format=3 uid="uid://cmtdpxw0okel6"]
 
 [ext_resource type="Script" uid="uid://da7cphxvvsuwf" path="res://portal.gd" id="1_ef3v5"]
 [ext_resource type="Texture2D" uid="uid://3yoxsrbkba80" path="res://portal_png-removebg-preview.png" id="2_grrij"]
-[ext_resource type="AudioStream" uid="uid://myn46oshd401" path="res://pokemon-redblueyellow-teleport-sound-effect.mp3" id="3_grrij"]
+[ext_resource type="AudioStream" uid="uid://cmd32lkg2cp1r" path="res://teleport.mp3" id="3_grrij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6r214"]
 atlas = ExtResource("2_grrij")
@@ -79,21 +79,21 @@ animations = [{
 radius = 36.5
 height = 161.79999
 
-[node name="Portal" type="Area2D"]
+[node name="Portal" type="Area2D" unique_id=1948813686]
 script = ExtResource("1_ef3v5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1609062077]
 sprite_frames = SubResource("SpriteFrames_dd4p5")
 autoplay = "default"
 frame_progress = 0.4825953
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=224608788]
 shape = SubResource("CapsuleShape2D_ef3v5")
 
-[node name="Punto de salida" type="Marker2D" parent="."]
+[node name="Punto de salida" type="Marker2D" parent="." unique_id=754779797]
 position = Vector2(3564, -1644)
 
-[node name="SonidoTP" type="AudioStreamPlayer2D" parent="."]
+[node name="SonidoTP" type="AudioStreamPlayer" parent="." unique_id=1393480716]
 stream = ExtResource("3_grrij")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

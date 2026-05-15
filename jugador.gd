@@ -7,6 +7,12 @@ extends RigidBody2D
 var puede_disparar = true 
 
 @onready var punto_disparo = get_node_or_null("CarBody/PuntoDisparo")
+# --- SISTEMA DE AUDIO ---
+@onready var sfx_explosion = $sfx_explosion  # Añade esta línea arriba
+@onready var sfx_estatico = $estatico
+@onready var sfx_acceleracion = $acceleracion
+@onready var sfx_boost = $accelerar2
+var ya_esta_sonando = false
 
 # =====================
 # VARIABLES DE MOVIMIENTO
@@ -32,6 +38,9 @@ var ventana_tap = 0.25
 # READY
 # =====================
 func _ready():
+	if sfx_estatico:
+		sfx_estatico.play()
+		sfx_estatico.volume_db = 0.0 # Que se escuche el motor encendido
 	mass = 17
 	gravity_scale = 7
 	angular_damp = 3.0 
@@ -105,6 +114,12 @@ func _on_detector_de_muerte_area_entered(area: Area2D) -> void:
 func explotar():
 	if not vivo: return
 	var pos_muerte = global_position
+	
+	# REPRODUCIR SONIDO DE EXPLOSIÓN
+	if sfx_explosion:
+		sfx_explosion.pitch_scale = randf_range(0.8, 1.2) # Variación aleatoria
+		sfx_explosion.play()
+	
 	_preparar_muerte()
 	_aplicar_camara_cinematica(pos_muerte)
 	
@@ -115,6 +130,12 @@ func explotar():
 	if exp.has_method("explotar"): exp.explotar()
 	
 	crear_pedacitos_escombros(pos_muerte)
+	
+	# Detenemos los sonidos del motor para que no sigan sonando tras morir
+	sfx_estatico.stop()
+	sfx_acceleracion.stop()
+	sfx_boost.stop()
+
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene()
 
@@ -182,3 +203,46 @@ func disparar_misil():
 	get_parent().add_child(m)
 	await get_tree().create_timer(0.6).timeout
 	puede_disparar = true
+	
+# =====================
+# LÓGICA DE AUDIO DINÁMICO
+# =====================
+func _process(delta):
+	if not vivo:
+		for s in [sfx_estatico, sfx_acceleracion, sfx_boost]: s.stop()
+		return
+
+	var input_acel = Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
+
+	if input_acel:
+		if not ya_esta_sonando:
+			sfx_acceleracion.play()
+			sfx_boost.play()
+			ya_esta_sonando = true
+
+		if boost_activo:
+			# --- ESTADO TURBO ---
+			# En lugar de subir el pitch a 1.7, lo dejamos en 1.4 pero subimos el volumen
+			sfx_boost.volume_db = lerp(sfx_boost.volume_db, 6.0, 0.1) 
+			sfx_acceleracion.volume_db = lerp(sfx_acceleracion.volume_db, -30.0, 0.1)
+			
+			# No subas de 1.4 o 1.5, si no, suena a juguete
+			sfx_boost.pitch_scale = lerp(sfx_boost.pitch_scale, 1.45, 0.05)
+		else:
+			# --- ESTADO NORMAL ---
+			sfx_boost.volume_db = lerp(sfx_boost.volume_db, -40.0, 0.1)
+			sfx_acceleracion.volume_db = lerp(sfx_acceleracion.volume_db, 2.0, 0.05)
+			sfx_acceleracion.pitch_scale = lerp(sfx_acceleracion.pitch_scale, 1.15, 0.02)
+			
+			# Tono de motor normal
+			sfx_acceleracion.pitch_scale = lerp(sfx_acceleracion.pitch_scale, 1.1, 0.02)
+	else:
+		# --- ESTADO PARADO ---
+		sfx_boost.volume_db = lerp(sfx_boost.volume_db, -45.0, 0.05)
+		sfx_acceleracion.volume_db = lerp(sfx_acceleracion.volume_db, -45.0, 0.05)
+		sfx_estatico.volume_db = lerp(sfx_estatico.volume_db, 0.0, 0.05)
+		
+		if ya_esta_sonando and sfx_acceleracion.volume_db < -35:
+			sfx_acceleracion.stop()
+			sfx_boost.stop()
+			ya_esta_sonando = false

@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cagqslakvyey2" path="res://Dodge Ram Rebel TRX/off road racing/car-wheel.png" id="4_qs73i"]
 [ext_resource type="Script" uid="uid://xor651st6j1e" path="res://camera_2d.gd" id="4_y8ckc"]
 [ext_resource type="Texture2D" uid="uid://rnik23v6am4a" path="res://Dodge Ram Rebel TRX/off road racing/car-full.png" id="5_60s60"]
+[ext_resource type="AudioStream" uid="uid://8ryejm0m0xuc" path="res://Estatico.mp3" id="6_mkugs"]
+[ext_resource type="AudioStream" uid="uid://cccqua851nosj" path="res://acceleracion.mp3" id="7_ggrtm"]
+[ext_resource type="AudioStream" uid="uid://d3spra3v7t6ep" path="res://acceleracion2.mp3" id="8_ggrtm"]
+[ext_resource type="AudioStream" uid="uid://bscpdlg71aqj1" path="res://impact_explosion_03_UhRGks5.mp3" id="9_ig3iu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_60s60"]
 friction = 4.0
@@ -134,5 +138,17 @@ position = Vector2(-672, 418)
 texture = ExtResource("5_60s60")
 region_enabled = true
 region_rect = Rect2(0, 0, 341.5, 257)
+
+[node name="estatico" type="AudioStreamPlayer2D" parent="." unique_id=1363958229]
+stream = ExtResource("6_mkugs")
+
+[node name="acceleracion" type="AudioStreamPlayer2D" parent="." unique_id=141041440]
+stream = ExtResource("7_ggrtm")
+
+[node name="accelerar2" type="AudioStreamPlayer2D" parent="." unique_id=85416703]
+stream = ExtResource("8_ggrtm")
+
+[node name="sfx_explosion" type="AudioStreamPlayer" parent="." unique_id=1087281643]
+stream = ExtResource("9_ig3iu")
 
 [connection signal="area_entered" from="DetectorDeMuerte" to="." method="_on_detector_de_muerte_area_entered"]

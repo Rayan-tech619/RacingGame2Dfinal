@@ -6,44 +6,45 @@ extends Area2D
 static var bloqueado_global = false 
 
 func _on_body_entered(body):
-	if body.name == "jugador" and not bloqueado_global:
+	# Verificamos que sea el jugador y que el portal no esté en cooldown
+	if body.name.to_lower().contains("jugador") and not bloqueado_global:
 		viajar(body)
 
 func viajar(body):
 	bloqueado_global = true 
 	
+	# REPRODUCCIÓN DEL SONIDO
 	if sonido_teleport:
 		sonido_teleport.play() 
 	
-	# --- 1. ENTRADA AL PORTAL ---
+	# --- 1. ENTRADA AL PORTAL (Efecto de succión) ---
 	if body is RigidBody2D:
-		body.freeze = true # Congelamos para evitar que las ruedas se muevan solas
+		body.freeze = true 
 	
 	var tween_in = create_tween().set_parallel(true)
+	# Se encoge y se mueve al centro del portal
 	tween_in.tween_property(body, "scale", Vector2(0, 0), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	tween_in.tween_property(body, "global_position", global_position, 0.4)
 	
 	await tween_in.finished
 	
-	# --- 2. TELETRANSPORTE INVISIBLE ---
-	# Lo movemos al punto de salida pero sigue en escala 0
+	# --- 2. TELETRANSPORTE ---
+	# Movemos el cuerpo al punto de destino
 	body.global_position = punto_salida.global_position
 	
-	# --- 3. SALIDA (Agrandándose y luego soltando) ---
+	# --- 3. SALIDA (Efecto de aparición) ---
 	var tween_out = create_tween()
-	# El coche sale de 0 a 1 de forma elástica
-	tween_out.tween_property(body, "scale", Vector2(1, 1), 0.6).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween_out.tween_property(body, "scale", Vector2(1, 1), 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	
-	# Esperamos a que la animación de "agrandarse" casi termine
 	await tween_out.finished
 	
-	# --- 4. ACTIVAR FÍSICAS (El "Escupitajo") ---
+	# --- 4. LANZAMIENTO (El "Escupitajo") ---
 	if body is RigidBody2D:
-		body.freeze = false # Solo ahora soltamos las ruedas
-		# Le damos un pequeño impulso para que no se quede pegado al portal
-		var impulso = Vector2.RIGHT.rotated(punto_salida.rotation) * 800
-		body.apply_central_impulse(impulso)
+		body.freeze = false 
+		# Calculamos la dirección basada en la rotación del punto de salida
+		var direccion = Vector2.RIGHT.rotated(punto_salida.global_rotation)
+		body.apply_central_impulse(direccion * 1200) # Un poco más de fuerza
 	
-	# Cooldown para no entrar en bucle
-	await get_tree().create_timer(1.5).timeout 
+	# Cooldown para evitar bucles infinitos entre portales
+	await get_tree().create_timer(1.0).timeout 
 	bloqueado_global = false

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bs0a4r0mc78xu"]
+
+[ext_resource type="AudioStream" uid="uid://cv2vw81yi8kni" path="res://999-level-up.mp3" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=1819346608]
+
+[node name="sfx_normal" type="AudioStreamPlayer" parent="." unique_id=1056997532]
+stream = ExtResource("1_wtcfe")

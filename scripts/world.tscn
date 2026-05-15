@@ -234,11 +234,11 @@ position = Vector2(49639, 13240)
 texture = ExtResource("9_8bvd1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1064952920]
-position = Vector2(48211, 13429)
+position = Vector2(49623, 13107)
 script = ExtResource("10_2gqin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1030239272]
-position = Vector2(1425.5, -274.5)
+position = Vector2(9, 43)
 shape = SubResource("RectangleShape2D_ioo17")
 
 [node name="PixelArtWoodenSignWithIndicativeArrow8BitGameItemOnWhiteBackgroundVector" type="Sprite2D" parent="." unique_id=943947024]

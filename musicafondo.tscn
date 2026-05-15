@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ci1hdaw32fjx6"]
+
+[ext_resource type="AudioStream" uid="uid://dnbn1s2luo8pn" path="res://alexgrohl-energetic-indie-rock-jump-112179.mp3" id="1_3mx32"]
+
+[node name="Musicafondo" type="AudioStreamPlayer" unique_id=161473053]
+stream = ExtResource("1_3mx32")
+autoplay = true

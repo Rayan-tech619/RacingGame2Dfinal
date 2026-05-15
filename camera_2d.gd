@@ -1,8 +1,8 @@
 extends Camera2D
 
-@export var zoom_normal := Vector2(0.1, 0.1) # 0.1 es demasiado cerca, 0.8 es más estándar
+@export var zoom_normal := Vector2(0.01, 0.01) # 0.1 es demasiado cerca, 0.8 es más estándar
 @export var zoom_acelerar := Vector2(0.2, 0.2) # En Camera2D, valores menores = Zoom In (más cerca)
-@export var velocidad_zoom := 1
+@export var velocidad_zoom := 0.1
 
 var coche = null
 

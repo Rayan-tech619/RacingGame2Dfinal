@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cmtdpxw0okel6"]
+[gd_scene load_steps=15 format=3 uid="uid://cmtdpxw0okel6"]
 
 [ext_resource type="Script" uid="uid://da7cphxvvsuwf" path="res://portal.gd" id="1_ef3v5"]
 [ext_resource type="Texture2D" uid="uid://3yoxsrbkba80" path="res://portal_png-removebg-preview.png" id="2_grrij"]
@@ -76,24 +76,24 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3v5"]
-radius = 36.5
-height = 161.79999
+radius = 24.699997
+height = 139.99997
 
-[node name="Portal" type="Area2D" unique_id=1948813686]
+[node name="Portal" type="Area2D"]
 script = ExtResource("1_ef3v5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1609062077]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dd4p5")
 autoplay = "default"
 frame_progress = 0.4825953
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=224608788]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ef3v5")
 
-[node name="Punto de salida" type="Marker2D" parent="." unique_id=754779797]
+[node name="Punto de salida" type="Marker2D" parent="."]
 position = Vector2(3564, -1644)
 
-[node name="SonidoTP" type="AudioStreamPlayer" parent="." unique_id=1393480716]
+[node name="SonidoTP" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_grrij")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
